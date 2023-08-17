@@ -1,0 +1,18 @@
+Hosting Static Website on EC2 instance:
+
+1. yum update -y
+2. yum install httpd -y //to install the Apache HTTP Server, also known as httpd, on a Linux-based operating system using the package manager yum. 
+3. service httpd start //to start Apache web server
+4. chkconfig httpd on //to enable the automatic startup of the Apache HTTP Server (httpd) on a Linux system using the "chkconfig" utility. "chkconfig" is a command-line tool that allows system administrators to manage the services (daemons) running on a Linux system. By running this command, the httpd service will start automatically when the system boots up.
+5. service httpd status //to check if service is running or not
+6. cd to /etc/httpd/conf
+7. nano httpd.conf
+8. Then find the “DocumentRoot” and ‘<Directory “/var/ww/html”>‘ and replace the location with your own new root directory location.
+Move to the Document Root section in this config file and replace/var/www/html with the location where your sitecode is present. Now Move to the "Further Relax access" section in the file and replace directory with the location where your site code is present. 
+(As I was using an Amazon Linux machine, which is a CentOS and Rhel distro, so this config was changed in this way. It is also applicable for Fedora/CentOS. Different distro may have different ways to access the config files).
+9. chmod 711 /home/trendoceans
+chmod 755 /home/trendoceans/Documents/sitedata
+chmod 644 /home/trendoceans/Documents/sitedata/* (Changing permission so that there is no permission issue arise for Apache to access that folder)
+10. service httpd restart //(To restart the service httpd,so that our changes is reflected)
+
+Also read this: https://trendoceans.com/changing-default-root-directory-of-apache-web-server/
