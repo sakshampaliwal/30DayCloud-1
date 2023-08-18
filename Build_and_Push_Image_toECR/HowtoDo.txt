@@ -1,3 +1,5 @@
+How to Push Docker Image to AWS ECR:
+
 1. First set up AWS CLI in our system, to check aws cli is present or not run this: aws cli
 If this shows any output then it means cli is present on the system
 2. To set up local user in AWS CLI:
