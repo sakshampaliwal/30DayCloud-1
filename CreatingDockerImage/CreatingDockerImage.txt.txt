@@ -1,0 +1,7 @@
+1. mkdir myapp
+2. switch to myapp directory
+3. create a index.html file on that dir
+4. create Dockerfile 
+5. docker build -t myappv1 . //till here image is created
+6. docker run -p 8080:80 myapp //to create container of this image it is exposed on port 8080 of your local computer and 80 is the port of the container.
+7.open browser to test if container is working or not(http://localhost:8080)
