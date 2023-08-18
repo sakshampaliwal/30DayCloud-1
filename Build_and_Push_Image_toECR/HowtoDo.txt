@@ -1,0 +1,19 @@
+1. First set up AWS CLI in our system, to check aws cli is present or not run this: aws cli
+If this shows any output then it means cli is present on the system
+2. To set up local user in AWS CLI:
+Go to IAM Section and create user with full permission of ECR service and then give programmatic access permission to that user and generate access key and secret access key from there.
+3. If you already have old access key in your system and you want to use new one then you need to change it by going to ~/aws/credentials file and edit this credentials file with new access keys.
+4. then enter aws configure and write things what the prompt is demanding
+5. To create a repo on AWS ECR then write this command:
+aws ecr create-repository --repository-name <repo_name> --region <region_name>
+6. For Docker to push the image to ECR, first we have to authenticate our Docker credentials with AWS. We use the get-login-password command that retrieves and displays an authentication token using the GetAuthorizationToken API that we can use to authenticate to an Amazon ECR registry.
+Use this command:
+aws ecr get-login-password --region <region_name>
+7. Run this command:
+aws ecr --region <region> | docker login -u AWS -p <encrypted_token> <repo_uri>
+use same region where your repo is created
+8. Run this:
+docker tag <source_image_tag> <target_ecr_repo_uri>
+9. Pushing the Image:
+docker push <ecr-repo-uri>
+10. All Done!!
