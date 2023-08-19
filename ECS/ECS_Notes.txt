@@ -1,0 +1,35 @@
+ECS
+
+> Amazon Elastic Container Service (ECS) is a fully-managed container orchestration service provided by Amazon Web Services (AWS). It allows you to easily run and manage Docker containers on a cluster of EC2 instances. ECS eliminates the need for you to install and operate your own container orchestration software, as it takes care of the underlying infrastructure for you.
+
+> Running simple containers on a single EC-2 instance is simple but running these applications on a cluster of instances and managing the cluster is being administratively heavy process. With ECS, Fargate launch type, the load, and responsibility of managing the EC2 cluster is transferred over to the AWS and you can focus on application development rather than management of your cluster architecture.
+
+> Orchestrator: Orchestration is the coordination and management of multiple computer systems, applications and/or services, stringing together multiple tasks in order to execute a larger workflow or process.
+Orchestration helps IT teams manage complex systems by combining automated tasks and configurations across multiple servers and applications.
+
+> Automation and orchestration are different, but related concepts. Automation helps make your business more efficient by reducing or replacing human interaction with IT systems and instead using software to perform tasks to reduce cost, complexity, and errors. 
+In general, automation refers to automating a single task. This is different from orchestration, which is how you can automate a process or workflow that involves many steps across multiple disparate systems. E.g: Kubernetes,Docker Swarm,Rancher,HashiCorp Nomad.
+
+> Why Orchestrator: 
+	1. Manage Lifecycle of Containers Create/Restart/Destroy
+	2. Deploy and Load balance Application across multiple Servers
+	3. AutoScaling to handle variance in Traffic
+	4. Rolling Out Changes to Application
+> ECS is simple alternative to these Orchestrator
+
+> ECS has two Launch Types:
+	1. EC2
+	2. Fargate
+
+> ECS is brain behind how your container are going to deployed,it works with containers and it doesn't have another ability. ECS doesn't have their own hardware it is just use to create and delete containers but it still needs underline infra. to be able to run those containers.
+
+> Clusters is bunch of resources that your container are going to run on, so they are based on bunch of EC2 resources.So cluster is just infrastructure.
+
+> ECS Task Definition: An ECS task definition is a configuration template that defines how one or more Docker containers should be run within the ECS environment, specifying container details, resource requirements, networking, and more. Task Definition holds the information how many containers to create for the task, what containers should be linked together, how much CPU should be allocated, connecting logs, defining environment etc.
+
+> ECS Tasks: A task represents a single instance of a running container. A task is a single "instance" of a task definition. It will do his job and ShutDown.
+
+> Service: A Service ensures that a certain number of tasks are running. This means that should a task fail or shut down for some reason, the ECS Service would create a new instance according to user instructions in the Task Definition and Service Definition. Service, however, is the middleman that will take that task definition, take instructions (service definition) on how many tasks should be spun up in however many regions and will keep an eye on it for me. Should any task fail, the Service will create a new instance automatically. 
+
+> Load Balancer: The load balancer distributes incoming application traffic across multiple targets, such as EC2 instances, in multiple Availability Zones. This increases the availability of your application.
+
