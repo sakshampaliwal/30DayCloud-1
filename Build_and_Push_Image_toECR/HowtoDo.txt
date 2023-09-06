@@ -19,3 +19,8 @@ docker tag <source_image_tag> <target_ecr_repo_uri>
 9. Pushing the Image:
 docker push <ecr-repo-uri>
 10. All Done!!
+
+Note:
+If problem of AuthorizationToken Arises then try read this ans: https://stackoverflow.com/questions/65727113/aws-ecr-user-is-not-authorized-to-perform-ecr-publicgetauthorizationtoken-on-r
+
+If error of storing credential arises try read this ans: https://stackoverflow.com/questions/60807697/docker-login-error-storing-credentials-the-stub-received-bad-data
